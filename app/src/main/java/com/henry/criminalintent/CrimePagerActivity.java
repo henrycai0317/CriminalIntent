@@ -88,15 +88,7 @@ public class CrimePagerActivity extends AppCompatActivity {
 
 
 
-    @Override
-    public void onBackPressed() {
-        if(mViewPager.getCurrentItem() == 0){
-        super.onBackPressed();
-        }else {
-            mViewPager.setCurrentItem(mViewPager.getCurrentItem()-1);
-        }
 
-    }
 
     public void onFirst(View view) {
         mViewPager.setCurrentItem(0);

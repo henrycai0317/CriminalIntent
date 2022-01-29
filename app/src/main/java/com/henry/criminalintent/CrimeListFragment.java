@@ -23,7 +23,7 @@ public class CrimeListFragment extends Fragment {
     private static final int REQUEST_CRIME = 1;
     private RecyclerView mCrimeRecyclerView;
     private CrimeAdapter mAdapter;
-    private int mAdapterPosition;
+    private int mAdapterPosition = -1 ;
 
     @Nullable
     @Override
@@ -52,7 +52,12 @@ public class CrimeListFragment extends Fragment {
         mAdapter = new CrimeAdapter(crimes);
         mCrimeRecyclerView.setAdapter(mAdapter);
         }else {
+            if(mAdapterPosition >-1){
             mAdapter.notifyItemChanged(mAdapterPosition);
+            mAdapterPosition = -1;
+            }else {
+                mAdapter.notifyDataSetChanged();
+            }
         }
     }
 
