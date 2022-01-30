@@ -30,6 +30,7 @@ public class CrimeFragment extends Fragment {
     private static final String DIALOG_DATE = "DialogDate";
 
     private static final int REQUEST_DATE = 0;
+    private Button mBtRemoveCrime;
 
     public static CrimeFragment newInstance(UUID crimeId){
         Bundle args = new Bundle();
@@ -98,6 +99,15 @@ public class CrimeFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 mCrime.setSolved(isChecked);
+            }
+        });
+
+        mBtRemoveCrime = (Button) v.findViewById(R.id.remove_crime);
+        mBtRemoveCrime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CrimeLab.get(getActivity()).removeCrime(mCrime);
+                getActivity().finish();
             }
         });
 
