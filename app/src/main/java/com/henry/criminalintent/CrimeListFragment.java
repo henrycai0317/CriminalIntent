@@ -92,6 +92,7 @@ public class CrimeListFragment extends Fragment {
                 return true;
             case R.id.show_subtitle:
                 mSubtitleVisible = !mSubtitleVisible;
+                //更新Menu選項文字
                 getActivity().invalidateOptionsMenu();
                 updateSubtitle();
                 return true;
@@ -102,9 +103,10 @@ public class CrimeListFragment extends Fragment {
 
     private void updateSubtitle(){
         CrimeLab crimeLab = CrimeLab.get(getActivity());
-        int crimeCount = crimeLab.getCrimes().size();
-        String subtitle = getString(R.string.subtitle_format,crimeCount);
-
+        int crimeSize = crimeLab.getCrimes().size();
+//        String subtitle = getString(R.string.subtitle_format,crimeCount);
+        String subtitle = getResources()
+                .getQuantityString(R.plurals.subtitle_plural,crimeSize,crimeSize,crimeSize);
         if(!mSubtitleVisible){
             subtitle = null;
         }
