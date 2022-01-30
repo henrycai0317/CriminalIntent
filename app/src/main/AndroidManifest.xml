@@ -11,6 +11,7 @@
         android:theme="@style/Theme.CriminalIntent">
         <activity
             android:name=".CrimePagerActivity"
+            android:parentActivityName=".CrimeListActivity"
             android:exported="false" />
         <activity
             android:name=".CrimeListActivity"
